@@ -1,7 +1,9 @@
 # LLM-Challenge
 
 AI no-code Challenge - Collect statistics with Generative AI without coding! 🤖
+
 Is it possible? Share the solution! 🤖
+
 For now, you can collect statistics with Python code 🐍 😊
 
 
