@@ -6,7 +6,7 @@
 
 import pandas as pd
 import streamlit as st
-from streamlit_extras.add_vertical_space import add_vertical_space
+# from streamlit_extras.add_vertical_space import add_vertical_space
 from utility_settings import SaveResultsCsvJson
 from sap_blog_statistics import SapBlogStatistics
 
