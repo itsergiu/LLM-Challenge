@@ -1,6 +1,8 @@
-# LLM-Challenge
+# AI Challenge | Web Scraping with Generative AI
 
-AI no-code Challenge - Collect statistics with Generative AI without coding! 🤖
+AI Challenge | Web Scraping with Generative AI 🤖
+
+Have you engineered a prompt to extract statistics of SAP blogs?
 
 Is it possible? Share the solution! 🤖
 
