@@ -1,6 +1,6 @@
 # AI Challenge | Web scraping with Generative AI!
-# Blog:
-# Online app:
+# Blog: https://blogs.sap.com/2023/10/23/ai-challenge-web-scraping-with-generative-ai/
+# Online app: https://gen-ai-challenge-web-data-extraction.streamlit.app/
 # Created by: Sergiu Iatco | October, 2023
 # https://www.linkedin.com/in/sergiuiatco/
 
