@@ -67,7 +67,7 @@ bt_side_sel = st.sidebar.selectbox("Select an option",
 with st.sidebar:
 #    add_vertical_space(1)
     st.markdown(
-        '📖 Read the [blog](https://blogs.sap.com/2023/10/02/state-of-genai-in-the-sap-community-09-2023/)')
+        '📖 Read the [blog](https://blogs.sap.com/2023/10/23/ai-challenge-web-scraping-with-generative-ai/)')
 
 st.write(f'**{bt_side_sel}**')
 if bt_side_sel == 'Upload SAP blog list':
