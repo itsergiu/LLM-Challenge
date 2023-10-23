@@ -1,4 +1,4 @@
-# AI Challenge | Web scrapping with Generative AI!
+# AI Challenge | Web scraping with Generative AI!
 # Blog:
 # Online app:
 # Created by: Sergiu Iatco | October, 2023
@@ -24,7 +24,7 @@ def f_init_session():
         st.session_state['df_ok'] = pd.DataFrame()
 
 
-def f_web_scrapping(p_file_name):
+def f_web_scraping(p_file_name):
     bls = SapBlogStatistics(p_file_name)
     bls.mt_iter_file()
     bls.mt_rename_cols(['url', 'OK', 'comments', 'likes', 'views'])
@@ -44,7 +44,7 @@ def f_download_button(p_df):
 
 
 def f_extract(p_file_name):
-    df_file, df_results, df_ok_sum, df_ok_count, df_ok = f_web_scrapping(p_file_name)
+    df_file, df_results, df_ok_sum, df_ok_count, df_ok = f_web_scraping(p_file_name)
     st.session_state['df_file'] = df_file
     st.session_state['df_results'] = df_results
     st.session_state['df_ok_sum'] = df_ok_sum
@@ -55,7 +55,7 @@ def f_extract(p_file_name):
 f_init_session()
 
 st.title("SAP Blog Statistics")
-st.write('AI Challenge | Web scrapping with Generative AI! 🤖')
+st.write('AI Challenge | Web scraping with Generative AI! 🤖')
 st.write('Is it possible? Share the solution! 🤖')
 st.write('For now, you can collect statistics with Python code. 🐍 😊')
 
