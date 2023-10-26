@@ -1,6 +1,6 @@
-# Blog:
-# Online app:
-# Statistics for https://blogs.sap.com/ | comments, likes and views
+# AI Challenge | Web scraping with Generative AI!
+# Blog: https://blogs.sap.com/2023/10/23/ai-challenge-web-scraping-with-generative-ai/
+# Online app: https://gen-ai-challenge-web-data-extraction.streamlit.app/
 # Created by: Sergiu Iatco | October, 2023
 # https://www.linkedin.com/in/sergiuiatco/
 
@@ -23,13 +23,22 @@ class SapBlogStatistics:
         if file_name is not None:
             self.df_file = pd.read_csv(file_name)
 
-    def mt_iter_file(self):
+    # def mt_iter_file(self):
+    def mt_iter_file(self, progress_callback=None):
         if not self.df_file.empty:
+            num_iterations = -1  # initialize zero is first
+            total_rows = len(self.df_file) - 1  # zero is first
             for _, row in self.df_file.iterrows():
                 url = row['url']
                 soup, ok = self.mt_requests_get(url)
                 result_dict = self.mt_span_elements(url, soup, ok)
                 self.mt_append_results(result_dict)
+
+                # Calculate progress and report it if a callback is provided
+                if progress_callback:
+                    num_iterations += 1  # Increment the iteration count
+                    progress = num_iterations / total_rows
+                    progress_callback(progress)
 
     def mt_requests_get(self, url):
         soup, ok = None, self.OK_FAILURE

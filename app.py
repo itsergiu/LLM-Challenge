@@ -6,9 +6,10 @@
 
 import pandas as pd
 import streamlit as st
+
+from sap_blog_statistics import SapBlogStatistics
 # from streamlit_extras.add_vertical_space import add_vertical_space
 from utility_settings import SaveResultsCsvJson
-from sap_blog_statistics import SapBlogStatistics
 
 
 def f_init_session():
@@ -23,10 +24,18 @@ def f_init_session():
     if 'df_ok' not in st.session_state:
         st.session_state['df_ok'] = pd.DataFrame()
 
+    if 'progress' not in st.session_state:
+        st.session_state['progress'] = 0
+
 
 def f_web_scraping(p_file_name):
     bls = SapBlogStatistics(p_file_name)
-    bls.mt_iter_file()
+
+    def progress_callback(progress):
+        progress_bar.progress(progress)
+        st.session_state['progress'] = progress
+
+    bls.mt_iter_file(progress_callback)
     bls.mt_rename_cols(['url', 'OK', 'comments', 'likes', 'views'])
     bls.mt_convert_cols_to_int(['comments', 'likes', 'views'])
     df_file = bls.df_file
@@ -65,11 +74,14 @@ bt_side_sel = st.sidebar.selectbox("Select an option",
                                     'Upload SAP blog list'])
 
 with st.sidebar:
-#    add_vertical_space(1)
+    #    add_vertical_space(1)
     st.markdown(
         '📖 Read the [blog](https://blogs.sap.com/2023/10/23/ai-challenge-web-scraping-with-generative-ai/)')
 
 st.write(f'**{bt_side_sel}**')
+with st.empty():
+    progress_bar = st.progress(st.session_state['progress'])
+
 if bt_side_sel == 'Upload SAP blog list':
     uploaded_file_disabled = False
 else:
@@ -91,7 +103,6 @@ bt_extract_disabled = False
 if bt_side_sel == 'Upload SAP blog list':
     if uploaded_file is None:
         bt_extract_disabled = True
-
 
 st.button("Extract Statistics", disabled=bt_extract_disabled, on_click=f_extract, args=(file_name,), key='bt_extract')
 
