@@ -63,7 +63,7 @@ def f_extract(p_file_name):
 
 f_init_session()
 
-st.title("SAP Blog Statistics")
+st.title("SAP AI Blog Statistics")
 st.write('AI Challenge | Web scraping with Generative AI! 🤖')
 st.write('Is it possible? Share the solution! 🤖')
 st.write('For now, you can collect statistics with Python code. 🐍 😊')
