@@ -1,7 +1,6 @@
-streamlit~=1.25.0
-
-pandas~=2.0.3
-requests~=2.31.0
-bs4~=4.12.2
-beautifulsoup4~=4.12.2
+streamlit
+pandas
+requests
+bs4
+beautifulsoup4
 
