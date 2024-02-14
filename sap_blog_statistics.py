@@ -75,6 +75,12 @@ class SapBlogStatistics:
             self.df_results.rename(columns=column_mapping, inplace=True)
 
     def mt_convert_cols_to_int(self, column_names):
+        if len(self.df_results.columns) == 2:
+            # Add 'comments','likes','views' to avoid dump
+            self.df_results['comments'] = ''
+            self.df_results['likes'] = ''
+            self.df_results['views'] = ''
+            
         if not self.df_results.empty:
             for cols in column_names:
                 if self.df_results.dtypes[cols] == 'object':
